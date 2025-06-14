@@ -23,21 +23,20 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20' # or whatever version you are using
+          node-version: '20'
 
       - name: Install Dependencies
         run: npm install
-        working-directory: FRONTEND
 
       - name: Build Angular App
         run: npm run build -- --configuration production
-        working-directory: FRONTEND
 
       - name: Deploy to Azure Static Web Apps
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_DELIGHTFUL_GLACIER_0512B3C0F }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # For PR comments
-          app_location: "FRONTEND" # points to where angular.json is
-          output_location: "FRONTEND/dist/chatbot" # points to your dist output
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          app_location: "/" # because angular.json is in root
+          output_location: "dist/chatbot" # as per your angular.json build output
+
