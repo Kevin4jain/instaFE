@@ -1,13 +1,13 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { UserService } from '../../services/user.service';
-import User from '../../Types/User';
-import n1 from '../../Types/n1';
-import { forkJoin } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import completeUser from '../../Types/completeUser';
 import { HttpClient } from '@angular/common/http';
+import { Component, inject, OnInit } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
+import { forkJoin } from 'rxjs';
+import { UserService } from '../../services/user.service';
+import completeUser from '../../Types/completeUser';
+import n1 from '../../Types/n1';
+import User from '../../Types/User';
 
 @Component({ 
   selector: 'app-userprofile',
@@ -98,6 +98,7 @@ details(email:string){
       });
     }
   }
+  //delete post
 
   deletepost(id: string) {
     this.http.get(`http://localhost:2300/deletepost/${id}`, { withCredentials: true })
