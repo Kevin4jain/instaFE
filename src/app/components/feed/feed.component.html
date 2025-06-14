@@ -1,0 +1,24 @@
+<div style="display: flex; flex-direction: column; align-items: center; background-color: #222; padding: 20px; min-height: 100vh;">
+
+    <div *ngFor="let post of posts" 
+        style="background-color: #333; color: white; padding: 15px; margin: 10px 0; border-radius: 10px; width: 320px; text-align: center;">
+        <h2>Posted By:-{{post.userId.name}}</h2>
+        <img [src]="'http://localhost:2300' + post.imageUrl" 
+            (click)="openImage(post.imageUrl)" 
+            style="width: 100%; height: 350px; object-fit: cover; border-radius: 8px; cursor: pointer;">
+        
+        <h2>Caption:-"{{ post.caption }}"</h2>
+        <p style="margin-top: 10px; font-size: 16px;"></p>
+
+        <h3>Created At:-{{post.createdAt | date}}</h3>
+    </div>
+
+    <div *ngIf="fullscreenImage" 
+        (click)="closeImage()" 
+        style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.9); display: flex; justify-content: center; align-items: center; z-index: 1000;">
+        
+        <img [src]="'http://localhost:2300' + fullscreenImage" 
+            style="max-width: 100%; max-height: 100%; object-fit: contain; cursor: pointer;">
+    </div>
+
+</div>

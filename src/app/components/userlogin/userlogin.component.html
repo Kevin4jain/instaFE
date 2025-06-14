@@ -1,0 +1,17 @@
+<h1 style="text-align: center; font-family: Arial, sans-serif;">Please Log in!</h1>
+
+<form [formGroup]="loginform">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 15px; max-width: 300px; margin: auto;">
+        <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Email</mat-label>
+            <input autocomplete="username" matInput type="email" formControlName="email" placeholder="Enter Email">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password" autocomplete="current-password" placeholder="Enter Password">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" (click)="login()" style="width: 100%;">Login</button>
+    </div>
+</form>

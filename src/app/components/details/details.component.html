@@ -1,0 +1,32 @@
+<div class="user-details-card">
+  <h2>Name: {{ user.name }}</h2>
+  <h2>Email: {{ user.email }}</h2>
+  <h2>About: {{ user.description || 'No Description available!' }}</h2>
+  <button mat-raised-button color="primary" (click)="getposts(user._id)">
+    {{ showPosts ? 'Hide Posts' : 'Show Posts' }}
+  </button>
+</div>
+
+<!-- Posts Section -->
+<div class="posts-container" *ngIf="showPosts && posts.length > 0">
+  <mat-card *ngFor="let post of posts" class="post-card">
+    <mat-card-header>
+      <mat-card-title>Posted by: {{ post.userId.name }}</mat-card-title>
+      <mat-card-subtitle>{{ post.createdAt | date:'medium' }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="'http://localhost:2300' + post.imageUrl" alt="Post Image" (click)="openImage(post.imageUrl)">
+    <mat-card-content>
+      <p class="caption">Caption: "{{ post.caption }}"</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<!-- No Posts Found -->
+<div class="no-posts" *ngIf="showPosts && posts.length === 0 && postsFetched">
+  <p>No posts found for this user.</p>
+</div>
+
+<!-- Image Modal -->
+<div *ngIf="showModal" class="image-modal" (click)="closeModal()">
+  <img [src]="'http://localhost:2300' + selectedImage" alt="Full Image">
+</div>

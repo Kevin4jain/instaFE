@@ -1,0 +1,26 @@
+<mat-toolbar style="justify-content: space-between; display: flex; flex-direction: row-reverse;">
+  <ng-container *ngIf="flag">
+
+    <button mat-raised-button routerLink="/profile">Profile</button>
+  </ng-container>
+
+  
+    <ng-container *ngIf="!flag">
+      <button mat-raised-button routerLink="/signup">Sign Up</button>
+      <button mat-raised-button routerLink="/login">Login</button>
+    </ng-container>
+  
+    <ng-container *ngIf="flag">
+      <button mat-raised-button routerLink="/myfeed">My Feed</button>
+      <button mat-raised-button (click)="logout()">Logout</button>
+      <button mat-raised-button routerLink="/upload">Upload Photos</button>
+    </ng-container>
+    <ng-container *ngIf="flag">
+
+    <button mat-raised-button routerLink="/home">Home</button>
+  </ng-container>
+
+  </mat-toolbar>
+  
+  <router-outlet></router-outlet>
+  

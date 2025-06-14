@@ -1,0 +1,22 @@
+<div class="search-bar">
+  <input matInput placeholder="Search users..." [(ngModel)]="sbn" class="search-input">
+  <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+</div>
+
+<div class="filter-buttons">
+  <button mat-button [color]="filterType === 'all' ? 'primary' : ''" (click)="changeFilter('all')">All Users</button>
+  <button mat-button [color]="filterType === 'following' ? 'primary' : ''" (click)="changeFilter('following')">Following</button>
+  <button mat-button [color]="filterType === 'others' ? 'primary' : ''" (click)="changeFilter('others')">Discover Users</button>
+</div>
+
+<div class="user-cards-container">
+  <mat-card *ngFor="let x of filteredUsers" class="user-card">
+    <mat-card-content>
+      <h2 class="user-name" (click)="details(x.email)">{{ x.name }}</h2>
+    </mat-card-content>
+    <mat-card-actions>
+      <button *ngIf="following.includes(x.email)" mat-stroked-button color="warn" (click)="unfollowreq(x.email)">Following</button>
+      <button *ngIf="!following.includes(x.email)" mat-stroked-button color="primary" (click)="followreq(x.email)">Follow</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

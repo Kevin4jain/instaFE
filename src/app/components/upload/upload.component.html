@@ -1,0 +1,24 @@
+<form (submit)="uploadPost()" 
+    style="display: flex; flex-direction: column; align-items: center; background-color: #222; padding: 20px; color: white;">
+
+    <div style="background-color: #333; padding: 20px; border-radius: 10px; text-align: center; width: 320px;">
+        
+        <input type="file" (change)="onFileSelected($event)" 
+            style="display: block; margin-bottom: 10px; color: white;">
+        
+        <input type="text" [(ngModel)]="caption" [ngModelOptions]="{standalone: true}" 
+            placeholder="Write a caption..." 
+            style="width: 100%; padding: 8px; border-radius: 5px; border: none; margin-bottom: 10px;">
+        
+        <button type="submit" [disabled]="isUploading" 
+            style="background-color: dodgerblue; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer;">
+            Upload
+        </button>
+
+        <p *ngIf="isUploading" style="margin-top: 10px;">Uploading...</p>
+
+        <p *ngIf="uploadSuccess === true" style="color: green;">Upload successful!</p>
+        <p *ngIf="uploadSuccess === false" style="color: red;">Upload failed. Try again.</p>
+    </div>
+
+</form>
