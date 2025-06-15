@@ -11,7 +11,7 @@ import User from '../Types/User';
   providedIn: 'root'
 })
 export class UserService {
-  private API_URL = 'http://localhost:2300';
+  private API_URL = 'https://instabe-8qlv.onrender.com';
   // private API_URL = 'https://innovatemr-internship-tasks.onrender.com';
 
   
@@ -119,7 +119,7 @@ setLoginState(isLoggedIn: boolean) {
   }
 
   getallreqs() {
-    return this.http.get<User[]>('http://localhost:2300/getallreq', {headers:this.getHeaders(),withCredentials:true});
+    return this.http.get<User[]>('https://instabe-8qlv.onrender.com/getallreq', {headers:this.getHeaders(),withCredentials:true});
   }
   updatestatus(status: string, email: string) {
     return this.http.get<any>(`${this.API_URL}/response/${status}/${email}`,{headers:this.getHeaders(),withCredentials:true});

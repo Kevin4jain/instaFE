@@ -36,7 +36,7 @@ export class DetailsComponent implements OnInit {
 
 getposts(id: string) {
   if (!this.showPosts) { // If posts are hidden, fetch and show them
-    this.http.get(`http://localhost:2300/uploads/${id}`, { withCredentials: true })
+    this.http.get(`https://instabe-8qlv.onrender.com/${id}`, { withCredentials: true })
       .subscribe({
         next: (response: any) => {
           if (response.err) {

@@ -25,7 +25,7 @@ closeImage() {
 }
 
     ngOnInit() {
-        this.http.get("http://localhost:2300/feed", { withCredentials: true })
+        this.http.get("https://instabe-8qlv.onrender.com/feed", { withCredentials: true })
             .subscribe(response => {
                 this.posts = response as any[];
             }, error => {

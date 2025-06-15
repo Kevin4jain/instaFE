@@ -40,7 +40,7 @@
     <h2>My Uploads</h2>
     <div *ngFor="let post of myupl" class="upload-card">
       <h3>{{ post.userId.name }}</h3>
-      <img [src]="'http://localhost:2300' + post.imageUrl" (click)="zoomImage('http://localhost:2300' + post.imageUrl)" />
+      <img [src]="'https://instabe-8qlv.onrender.com' + post.imageUrl" (click)="zoomImage('https://instabe-8qlv.onrender.com' + post.imageUrl)" />
       <p>{{ post.caption }}</p>
       <small>{{ post.createdAt | date }}</small>
       <button class="delete" (click)="deletepost(post._id)">Delete</button>

@@ -1,6 +1,6 @@
 export const environment = {
-    production: false,
-    API_URL: 'http://localhost:2300',
+    production: true,
+    API_URL: 'https://instabe-8qlv.onrender.com',
     SECRET_KEY: 'your-secret-key'
   };
   

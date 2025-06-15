@@ -57,7 +57,7 @@ export class UserprofileComponent implements OnInit {
 
   loadMyUploads() {
     if(this.myupl.length === 0){
-      this.http.get("http://localhost:2300/myuploads", { withCredentials: true })
+      this.http.get("https://instabe-8qlv.onrender.com/myuploads", { withCredentials: true })
           .subscribe(
             response => this.myupl = response as any[],
             error => console.error("Failed to fetch posts", error)
@@ -101,7 +101,7 @@ details(email:string){
   //delete post
 
   deletepost(id: string) {
-    this.http.get(`http://localhost:2300/deletepost/${id}`, { withCredentials: true })
+    this.http.get(`https://instabe-8qlv.onrender.com/deletepost/${id}`, { withCredentials: true })
       .subscribe(
         response => window.alert((response as any).Success),
         error => console.error("Failed to delete post", error)

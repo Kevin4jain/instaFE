@@ -34,7 +34,7 @@ export class UploadComponent {
         this.isUploading = true; // Show loading state
         this.uploadSuccess = null;
 
-        this.http.post("http://localhost:2300/upload", formData, { withCredentials: true })
+        this.http.post("https://instabe-8qlv.onrender.com/upload", formData, { withCredentials: true })
             .subscribe({
                 next: (response) => {
                     console.log("Upload successful", response);
