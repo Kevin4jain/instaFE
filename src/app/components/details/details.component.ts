@@ -36,7 +36,7 @@ export class DetailsComponent implements OnInit {
 
 getposts(id: string) {
   if (!this.showPosts) { // If posts are hidden, fetch and show them
-    this.http.get(`https://instabe-8qlv.onrender.com/${id}`, { withCredentials: true })
+    this.http.get(`https://instabe-8qlv.onrender.com/uploads/${id}`, { withCredentials: true })
       .subscribe({
         next: (response: any) => {
           if (response.err) {
@@ -56,6 +56,7 @@ getposts(id: string) {
     this.showPosts = false;
   }
 }
+
 
 
   openImage(url: string) {
